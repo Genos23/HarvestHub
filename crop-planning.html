@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Planning Tool - HarvestHub</title>
+    <link rel="stylesheet" href="crop-planning.css">
+</head>
+<body>
+    <header>
+        <h1>HarvestHub</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="crop-planning-tool">
+            <h2>Personalized Crop Planning Tool</h2>
+
+            <form id="crop-planning-form">
+                <div class="form-group">
+                    <label for="crop-type">Select Crop Type:</label>
+                    <select id="crop-type" required>
+                        <option value="" disabled selected>Select a crop</option>
+                        <option value="corn">Corn</option>
+                        <option value="wheat">Wheat</option>
+                        <option value="rice">Rice</option>
+                        <option value="potato">Potato</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="planting-date">Planting Date:</label>
+                    <input type="date" id="planting-date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Location (Zip Code or City):</label>
+                    <input type="text" id="location" placeholder="Enter your location" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="soil-type">Soil Type:</label>
+                    <select id="soil-type" required>
+                        <option value="" disabled selected>Select soil type</option>
+                        <option value="loam">Loam</option>
+                        <option value="sandy">Sandy</option>
+                        <option value="clay">Clay</option>
+                        <option value="silt">Silt</option>
+                    </select>
+                </div>
+
+                <button type="button" id="get-recommendation">Get Recommendations</button>
+            </form>
+
+            <div id="recommendation-output" class="recommendation-output">
+                <h3>Recommendations</h3>
+                <p id="recommendation-text">Your recommendations will appear here.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 HarvestHub</p>
+    </footer>
+
+    <script src="crop-planning.js"></script>
+</body>
+</html>

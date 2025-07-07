@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real-Time Weather Updates</title>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #eaeaea;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    header {
+      background-color: #265228;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    header button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #ffffff;
+      color: #274a28;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    header button:hover {
+      background-color: #f1f1f1;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .weather-heading {
+      margin-top: 30px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #264c27;
+    }
+
+    #map {
+      height: 500px;
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    #weather-info {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: none;
+    }
+
+    .weather-detail {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background-color: #2e512f;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Real-Time Weather Updates</h1>
+    <button onclick="location.href='index.html'">Home</button>
+  </header>
+
+  <main>
+    <div class="weather-heading">Current Weather Updates</div>
+    <div id="map"></div>
+    <div id="weather-info"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Weather Forecast</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    const apiKey = "b8b2fb030b1e2e09eb6856d05a021410"; // Your OpenWeather API Key
+
+    // Initialize the map
+    const map = L.map("map").setView([20.5937, 78.9629], 5);
+
+    // Add OpenStreetMap tiles
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: '© OpenStreetMap contributors',
+    }).addTo(map);
+
+    // Function to get weather data for a location
+    function getWeather(lat, lon) {
+      const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+
+      $.getJSON(weatherUrl, function (data) {
+        const weatherInfo = `
+          <h3 class="weather-detail">Weather in ${data.name}</h3>
+          <p class="weather-detail">Temperature: ${data.main.temp}°C</p>
+          <p class="weather-detail">Weather: ${data.weather[0].description}</p>
+          <p class="weather-detail">Humidity: ${data.main.humidity}%</p>
+          <p class="weather-detail">Wind Speed: ${data.wind.speed} m/s</p>
+        `;
+        document.getElementById("weather-info").innerHTML = weatherInfo;
+        document.getElementById("weather-info").style.display = "block"; // Show the weather info
+      }).fail(function (jqxhr, textStatus, error) {
+        const errorMessage = `Failed to load weather data: ${textStatus}, ${error}`;
+        console.error(errorMessage);
+        document.getElementById("weather-info").innerHTML = errorMessage;
+        document.getElementById("weather-info").style.display = "block"; // Show the error message
+      });
+    }
+
+    // Event listener for map clicks to get weather data for clicked location
+    map.on("click", function (e) {
+      const { lat, lng } = e.latlng;
+      getWeather(lat, lng);
+    });
+
+    // Get weather for India's center as default
+    getWeather(20.5937, 78.9629);
+  </script>
+</body>
+</html>

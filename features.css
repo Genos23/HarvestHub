@@ -1,0 +1,117 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    background-image: url("images/features-background.png");
+    background-size: cover;
+    background-position: center;
+ }
+ 
+header {
+    background-color: #2e672e;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+ }
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(57, 169, 66);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+main {
+    text-align: center;
+    padding: 50px;
+}
+
+h2 {
+    color: #2e672e;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.feature-selection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.feature-box {
+    width: 200px; 
+    text-align: center;
+    border: 2px solid #90ee90;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    padding: 10px;
+}
+
+.feature-box:hover {
+    transform: scale(1.05);
+    background-color: #90ee90; /* Change background on hover */
+}
+
+.feature-box img {
+    width: 100%; 
+    border-radius: 10px 10px 0 0; 
+}
+
+.feature-box h3 {
+    margin: 10px 0;
+    color: #2e672e; /* Heading color */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2e672e;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .feature-box {
+        width: 90%; 
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .feature-box {
+        width: 45%; /* Tablet view */
+    }
+}
+
+@media (min-width: 1025px) {
+    .feature-box {
+        width: 30%; /* Desktop view */
+    }
+}

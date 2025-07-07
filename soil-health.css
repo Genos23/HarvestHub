@@ -1,0 +1,108 @@
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    background-image: url("images/features-background.png");
+    background-size: cover;
+    background-position: center;
+}
+ 
+header {
+    background-color: #2e672e;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    flex: 1; /* Allows the main content to expand and fill space */
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.soil-health-analysis {
+    max-width: 800px; /* Restrict maximum width */
+    margin: auto; /* Center the section */
+    padding: 20px;
+    background-color: white; /* Background for contrast */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.form-container {
+    margin-bottom: 20px; /* Space between form and results */
+    padding: 20px; /* Padding inside the box */
+    border: 1px solid #ccc; /* Border around the form */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background for form */
+}
+
+h2 {
+    color: #3a763a;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%; /* Full width for inputs */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #3a763a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.analysis-output {
+    margin-top: 20px; /* Space between form and results */
+    padding: 20px; /* Padding inside the box */
+    border: 1px solid #ccc; /* Border around output */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background for output */
+}
+
+footer {
+    background-color: #3a763a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto; /* Pushes footer to the bottom */
+}

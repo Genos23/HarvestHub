@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Price Updates - HarvestHub</title>
+    <link rel="stylesheet" href="market-price.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Add Chart.js library -->
+</head>
+<body>
+    <header>
+        <h1>HarvestHub</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Market Price Updates</h2>
+        <div class="price-updates">
+            <h3>Update Crop Prices</h3>
+            <form class="update-price-form" id="update-price-form">
+                <div class="form-group">
+                    <label for="crop-name">Crop Name:</label>
+                    <input type="text" id="crop-name" placeholder="Enter crop name" required>
+                </div>
+                <div class="form-group">
+                    <label for="new-price">New Price (in $):</label>
+                    <input type="number" id="new-price" placeholder="Enter new price" required>
+                </div>
+                <button type="submit">Update Price</button>
+            </form>
+
+            <h3>Add New Crop</h3>
+            <form class="add-crop-form" id="add-crop-form">
+                <div class="form-group">
+                    <label for="new-crop-name">New Crop Name:</label>
+                    <input type="text" id="new-crop-name" placeholder="Enter new crop name" required>
+                </div>
+                <div class="form-group">
+                    <label for="new-crop-price">Price (in $):</label>
+                    <input type="number" id="new-crop-price" placeholder="Enter price for new crop" required>
+                </div>
+                <button type="submit">Add Crop</button>
+            </form>
+
+            <div class="price-list">
+                <h3>Current Crop Prices</h3>
+                <ul id="crop-price-list"></ul>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="price-chart" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 HarvestHub</p>
+    </footer>
+
+    <script src="market-price.js"></script>
+</body>
+</html>
